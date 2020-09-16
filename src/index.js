@@ -8,6 +8,16 @@ import App from './App.jsx';
 const theme = {
   grid: {
     gutterWidth: "10px", //16px is default
+  },
+  textSize: {
+    size: {
+      bannerSizeSm: "48px",
+      bannerSizeLg: "72px"
+    }
+    // ,
+    // height: {
+    //   customSize: "34px"
+    // }
   }
 };
 
