@@ -7,7 +7,7 @@ import App from './App.jsx';
 
 const theme = {
   grid: {
-    gutterWidth: "10px", //16px is default
+    // gutterWidth: "10px", //16px is default
   },
   textSize: {
     size: {
