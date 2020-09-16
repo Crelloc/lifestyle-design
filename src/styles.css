@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Nike Futura";
-    src: url("https://www.nike.com/assets/ncss/3.2/dotcom/fonts/nike-futura-extra-bold-v200.woff2") format("woff2");
+    src: url("./fonts/nike-futura-extra-bold-v200.woff2") format("woff2");
     font-style: normal;
     font-weight: 400;
   }
