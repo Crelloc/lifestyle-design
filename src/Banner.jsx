@@ -67,7 +67,6 @@ const BottomLeft1 = styled.div`
     justify-content: flex-end;
     text-alignment: left;
     left: 36px;
-    ${'' /* width: 40%; */}
     height: 33.33333%;
     display: flex;
     flex-direction: column;
@@ -79,13 +78,11 @@ const BottomLeft1 = styled.div`
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         margin-top: 18px;
         color: black;
-        width: "33.33%";
     }
 `;
 
 const BannerTitle1 = styled.h1`
     position: relative;
-    ${'' /* font-size: 72px; */}
     line-height: .833333;
     font-weight: 400;
     text-transform: uppercase;
