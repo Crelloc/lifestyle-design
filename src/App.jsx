@@ -1,6 +1,7 @@
 import React from 'react';
 import {Div} from 'atomize';
 import Banner from './Banner.jsx';
+import MustHaves from './Must-Haves.jsx';
 import './styles.css'
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
                 para="Everything you'll need to get serious with the back of the net."
                 m="84px auto 0"
             />
+            <MustHaves />
             <Div 
                 id="callToAction-container"
                 bg="success500"

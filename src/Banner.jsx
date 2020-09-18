@@ -6,12 +6,16 @@ import {Text, Div,  Button, Icon} from 'atomize';
 
 const Banner = ({imgSrc, imgAlt, title, para, m, mainTitle}) => {
     return (
-    <Div
+        <Div w="100%" m={m}>
+            <BannerTitle>
+                <h2>{mainTitle}</h2>
+            </BannerTitle>
+            <Div
         bg="success600"
         p="0 0"
         h={{xs: "500px", md: "700px", lg: "900px"}}
         pos="relative"
-        m={m}
+        // m={m}
         w="100%"
     >  
         <MediaContainer1>
@@ -57,10 +61,27 @@ const Banner = ({imgSrc, imgAlt, title, para, m, mainTitle}) => {
             </BottomLeft1>
         </Div>
     </Div>
+        </Div>
     );
 }
 
 export default Banner;
+
+const BannerTitle = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+
+    h2 {
+        margin-right: auto;
+        color: #111;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.16667;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+`;
 
 const BottomLeft1 = styled.div`
     position: absolute;
