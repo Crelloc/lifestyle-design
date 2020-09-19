@@ -35,9 +35,9 @@ const MustHaves = (props) => {
     return (<Container>
         <BannerTitle>
             <h2>This Season's Must-Haves</h2>
-            <a href="">Shop All</a>
+            <a href="/Shop-All">Shop All</a>
         </BannerTitle>
-        <SwiperWrapper id="test">
+        <SwiperWrapper>
             <SwiperSlide>
                 <ProductSlide>
                     <a href={products[0][1].slug}>
