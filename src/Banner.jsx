@@ -4,7 +4,7 @@ import {Text, Div,  Button, Icon} from 'atomize';
 
 
 
-const Banner = ({imgSrc, imgAlt, title, para, m, mainTitle}) => {
+const Banner = ({imgSrc, imgAlt, title, para, m, mainTitle, maxHeight}) => {
     return (
         <Div w="100%" m={m}>
             <BannerTitle>
@@ -13,7 +13,7 @@ const Banner = ({imgSrc, imgAlt, title, para, m, mainTitle}) => {
             <Div
         bg="success600"
         p="0 0"
-        h={{xs: "500px", md: "700px", lg: "900px"}}
+        h={{xs: "500px", md: "700px", lg: maxHeight}}
         pos="relative"
         // m={m}
         w="100%"

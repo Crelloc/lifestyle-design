@@ -1,23 +1,17 @@
 import React from 'react';
 import {Div} from 'atomize';
+import styled from 'styled-components';
 import Banner from './Banner.jsx';
 import MustHaves from './Must-Haves.jsx';
 import Trending from './Trending.jsx';
 import BestSellers from './BestSellers.jsx';
+import Featured from './Featured.jsx';
 
 import './styles.css'
 
 const App = () => {
     return (
-        <Div
-            d="flex"   
-            w="auto"
-            flexDir="column"
-            m={{xs: "84px 16px 0 16px", md: "84px 12px 0 12px", lg: "84px auto 0px auto"}}
-            pos="relative"
-            maxW="1808px"
-            overflow="auto"
-        >
+        <Shell>
             <Banner
                 mainTitle="The Latest And Greatest" 
                 imgSrc="../images/banner1.webp"
@@ -25,6 +19,7 @@ const App = () => {
                 title="Banner Title sdfdsdfdsf sfsadf"
                 para="Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
                 m="0 auto"
+                maxHeight="900px"
             />
             <Banner
                 mainTitle="You Got This" 
@@ -33,9 +28,11 @@ const App = () => {
                 title="Gear Up For Soccer asfddsf"
                 para="Everything you'll need to get serious with the back of the net. Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
                 m="84px auto 0"
+                maxHeight="900px"
             />
             <MustHaves />
             <Trending />
+            <Featured />
             <BestSellers />
             <Div 
                 id="callToAction-container"
@@ -58,8 +55,31 @@ const App = () => {
             >
                     Featured items section
             </Div>
-        </Div>
+        </Shell>
     );
 };
 
 export default App;
+
+const Shell = styled.div`
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    position: relative;
+    max-width: 1808px;
+    overflow: auto;
+    margin: 84px 12px 0 12px;
+
+    @media only screen and (min-width: 640px){
+        margin: 84px 16px 0 16px;
+    }
+    @media only screen and (min-width: 1024px){
+        margin: 84px 48px 0px;
+    }
+    @media only screen and (min-width: 1920px){
+        margin: 84px auto 16px;
+    }
+
+
+
+`;
