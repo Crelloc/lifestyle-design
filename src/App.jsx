@@ -3,6 +3,7 @@ import {Div} from 'atomize';
 import Banner from './Banner.jsx';
 import MustHaves from './Must-Haves.jsx';
 import Trending from './Trending.jsx';
+import BestSellers from './BestSellers.jsx';
 
 import './styles.css'
 
@@ -35,6 +36,7 @@ const App = () => {
             />
             <MustHaves />
             <Trending />
+            <BestSellers />
             <Div 
                 id="callToAction-container"
                 bg="success500"
