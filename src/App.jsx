@@ -16,9 +16,9 @@ const App = () => {
                 mainTitle="The Latest And Greatest" 
                 imgSrc="../images/banner1.webp"
                 imgAlt="nike showcase"
-                title="Banner Title sdfdsdfdsf sfsadf"
+                title="Check the fresh gear"
                 para="Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
-                m="0 auto"
+                m="84px auto 0"
                 maxHeight="900px"
             />
             <Banner
@@ -68,16 +68,16 @@ const Shell = styled.div`
     position: relative;
     max-width: 1808px;
     overflow: auto;
-    margin: 84px 12px 0 12px;
+    margin: 0 12px;
 
     @media only screen and (min-width: 640px){
-        margin: 84px 16px 0 16px;
+        margin: 0 16px;
     }
     @media only screen and (min-width: 1024px){
-        margin: 84px 48px 0px;
+        margin: 0 48px;
     }
     @media only screen and (min-width: 1920px){
-        margin: 84px auto 16px;
+        margin: 0 auto;
     }
 
 
