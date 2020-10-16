@@ -3,7 +3,7 @@
     src: url("./fonts/nike-futura-extra-bold-v200.woff2") format("woff2");
     font-style: normal;
     font-weight: 400;
-  }
+}
 
 * {
     padding: 0;
@@ -16,5 +16,7 @@ html {
 }
 
 body {
+    display: flex;
+    justify-content: center;
     font-family: "Nike Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

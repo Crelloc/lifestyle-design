@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Text, Div,  Button, Icon} from 'atomize';
+import {Text, Div} from 'atomize';
+import MyButton from './MyButton.jsx';
     
 const BannerDesc = ({title, para}) => {
     return (<Div
@@ -10,36 +11,13 @@ const BannerDesc = ({title, para}) => {
             <BottomLeft1> 
                 <BannerTitle1>
                     <Text
-                        textSize={{xs: "bannerSizeSm", lg: "bannerSizeLg"}}
+                        textSize={{xs: "bannerSizeSm"}}
                     >
                         {title}
                     </Text>
                 </BannerTitle1>
                 <BannerParagraph1> {para}</BannerParagraph1>
-                <Div
-                    pos="relative"
-                >
-                    <Button
-                        className="Button1"
-                        prefix={
-                        <Icon
-                            name="Bag"
-                            size="16px"
-                            color="black"
-                            m={{ r: "0.5rem" }}
-                        />
-                        }
-                        bg="gray300"
-                        hoverBg="gray400"
-                        rounded="circle"
-                        h="3rem"
-                        p={{ r: "1.5rem", l: "1.5rem", t: "1.5rem", b: "1.5rem" }}
-                        shadow="3"
-                        hoverShadow="4"
-                    >
-                        Shop
-                    </Button>
-                </Div>
+                <MyButton/>
             </BottomLeft1>
         </Div>);
 };

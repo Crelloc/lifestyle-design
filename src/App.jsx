@@ -19,7 +19,8 @@ const App = () => {
                 title="Check the fresh gear"
                 para="Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
                 m="84px auto 0"
-                maxHeight="900px"
+                maxHeight="428px"
+                // maxHeight="900px"
             />
             <Banner
                 mainTitle="You Got This" 
@@ -28,7 +29,8 @@ const App = () => {
                 title="Gear Up For Soccer asfddsf"
                 para="Everything you'll need to get serious with the back of the net. Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
                 m="84px auto 0"
-                maxHeight="900px"
+                // maxHeight="900px"
+                maxHeight="428px"
             />
             <MustHaves />
             <Trending />
@@ -66,17 +68,28 @@ const Shell = styled.div`
     width: auto;
     flex-direction: column;
     position: relative;
-    max-width: 1808px;
+    ${'' /* max-width: 1808px; */}
+    max-width: 1000px;
     overflow: auto;
     margin: 0 12px;
 
+    @media only screen and (max-width: 639px){
+        max-width: calc(100vw - 32px);
+        ${'' /* margin: 0 16px; */}
+        margin: 0;
+    }
     @media only screen and (min-width: 640px){
-        margin: 0 16px;
+        max-width: calc(100vw - 32px);
+        ${'' /* margin: 0 16px; */}
+        margin: 0;
+
     }
     @media only screen and (min-width: 1024px){
+        max-width: 1000px;
         margin: 0 48px;
     }
     @media only screen and (min-width: 1920px){
+        ${'' /* max-width is 1000px, from the previous screen setting */}
         margin: 0 auto;
     }
 

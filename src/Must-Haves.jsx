@@ -179,10 +179,11 @@ const SwiperWrapper = styled.div`
 
 const SwiperSlide = styled.div`
     width: calc(100% - 85px);
+
    @media only screen and (min-width: 1024px) {
 	    width: calc((100% - 144px)/3);
     }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 600px) {
 	    width: calc((100% - 144px)/2);
     }
     max-width: 586px;

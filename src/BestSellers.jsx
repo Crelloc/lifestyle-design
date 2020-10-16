@@ -116,11 +116,14 @@ const SwiperSlide = styled.div`
 position: relative;
     margin-right: 8px; 
     height: 100%;
-    width: 300px;
+    ${'' /* width: 300px; */}
+    width:  calc(100% - 32px);
     flex-shrink: 0;
     transition-property: transform;
     @media only screen and (min-width: 640px){
-        width: 330px;
+        ${'' /* width: 330px; */}
+        ${'' /* width:  calc((100% - 32px)/3); */}
+        width:  calc((100% - 64px)/2);
         margin-right: 16px;
     }
     @media only screen and (min-width: 1024px){

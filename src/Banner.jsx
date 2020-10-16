@@ -8,22 +8,15 @@ import BannerDesc from './BannerDesc';
 const Banner = ({imgSrc, imgAlt, title, para, m, mainTitle, maxHeight}) => {
     return (
         <Div w="100%" m={m}>
-            <BannerTitle>
-                <h2>{mainTitle}</h2>
-            </BannerTitle>
-            <Div
-        bg="success600"
-        p="0 0"
-        h={{xs: "500px", md: "700px", lg: maxHeight}}
-        pos="relative"
-        // m={m}
-        w="100%"
-    >  
-        <MediaContainer1>
-            <img src={imgSrc} alt={imgAlt}></img>
-        </MediaContainer1>
-        <BannerDesc title={title} para={para}/>
-    </Div>
+            <BannerTitle> <h2>{mainTitle}</h2> </BannerTitle>
+            <Div bg="success600" p="0 0" h={{xs: maxHeight}} pos="relative" w="100%"
+            // h={{xs: "500px", md: "700px", lg: maxHeight}}
+            >  
+                <MediaContainer1>
+                    <img src={imgSrc} alt={imgAlt}></img>
+                </MediaContainer1>
+                <BannerDesc title={title} para={para}/>
+            </Div>
         </Div>
     );
 }
