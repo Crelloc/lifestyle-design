@@ -11,8 +11,8 @@ const theme = {
   },
   textSize: {
     size: {
-      bannerSizeSm: "48px",
-      bannerSizeLg: "72px"
+      bannerSizeSm: "30px",
+      bannerSizeLg: "48px"
     }
     // ,
     // height: {

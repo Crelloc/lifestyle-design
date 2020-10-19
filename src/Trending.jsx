@@ -18,7 +18,7 @@ const title = "Trending";
 
 const columns = Object.entries(arrObj);
 
-const Trending2 = (props) => {
+const Trending2 = ({fullwidth}) => {
 
     return (
 
@@ -38,12 +38,12 @@ const Trending2 = (props) => {
             <BottomLeft1> 
                 <BannerTitle1>
                     <Text
-                        textSize={{xs: "bannerSizeSm"}}
+                        textSize={{xs: "bannerSizeSm", lg: fullwidth && "bannerSizeLg"}}
                     >
                         {columns[0][0]}
                     </Text>
                 </BannerTitle1>
-                <MyButton />
+                <MyButton Trending/>
             </BottomLeft1>
         </Div>
                 </MediaContainerLeft>
@@ -56,12 +56,12 @@ const Trending2 = (props) => {
             <BottomLeft1> 
                 <BannerTitle1>
                     <Text
-                        textSize={{xs: "bannerSizeSm"}}
+                        textSize={{xs: "bannerSizeSm", lg: fullwidth && "bannerSizeLg"}}
                     >
                         {columns[1][0]}
                     </Text>
                 </BannerTitle1>
-                <MyButton />
+                <MyButton Trending/>
             </BottomLeft1>
         </Div>
                 </MediaContainerRight>

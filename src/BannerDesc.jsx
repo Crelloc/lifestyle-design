@@ -1,17 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Text, Div} from 'atomize';
+import {Text} from 'atomize';
 import MyButton from './MyButton.jsx';
     
-const BannerDesc = ({title, para}) => {
-    return (<Div
-            pos="relative"
-            w={{xs: "100%", md: "40%"}}
-        >
+const BannerDesc = ({title, para, fullwidth}) => {
+    return (<Shell>
             <BottomLeft1> 
-                <BannerTitle1>
+                <BannerTitle1 fullwidth={fullwidth}>
                     <Text
-                        textSize={{xs: "bannerSizeSm"}}
+                        textSize={{xs: "bannerSizeSm", lg: fullwidth && "bannerSizeLg"}}
                     >
                         {title}
                     </Text>
@@ -19,11 +16,27 @@ const BannerDesc = ({title, para}) => {
                 <BannerParagraph1> {para}</BannerParagraph1>
                 <MyButton/>
             </BottomLeft1>
-        </Div>);
+        </Shell>);
 };
 
 export default BannerDesc;
 
+const Shell = styled.div`
+    position: relative;
+    @media only screen and (max-width: 639px){
+    width: calc(100% - 48px);
+    }
+    @media only screen and (min-width: 640px){
+      width: 60%;
+
+    }
+    @media only screen and (min-width: 1024px){
+        width: 60%;
+    }
+    @media only screen and (min-width: 1920px){
+       
+    }
+`;
 
 const BottomLeft1 = styled.div`
     position: absolute;
@@ -42,6 +55,19 @@ const BottomLeft1 = styled.div`
         margin-top: 18px;
         color: black;
     }
+
+    @media only screen and (max-width: 639px){
+        position: relative;
+        left: 0px;
+        top: 0;
+        height: 100%;
+        color: black;
+        margin: 0;
+        .Button1 {
+            color: white;
+        }
+        margin-top: 24px;
+    }
 `;
 
 const BannerTitle1 = styled.h1`
@@ -51,6 +77,19 @@ const BannerTitle1 = styled.h1`
     text-transform: uppercase;
     word-wrap: break-word;
     margin-bottom: 8px;
+
+    @media only screen and (max-width: 639px){
+    
+    }
+    @media only screen and (min-width: 640px){
+
+    }
+    @media only screen and (min-width: 1024px){
+        
+    }
+    @media only screen and (min-width: 1920px){
+       
+    }
 `;
 const BannerParagraph1 = styled.p`
     position: relative;

@@ -5,22 +5,26 @@ import Banner from './Banner.jsx';
 import MustHaves from './Must-Haves.jsx';
 import Trending from './Trending.jsx';
 import BestSellers from './BestSellers.jsx';
+import BestSellers2 from './BestSellers2.jsx';
 import Featured from './Featured.jsx';
+import Footer from './Footer.jsx';
 
 import './styles.css'
 
+const fullwidth = true;
+
 const App = () => {
     return (
-        <Shell>
+        <Shell fullwidth={fullwidth}>
             <Banner
                 mainTitle="The Latest And Greatest" 
-                imgSrc="../images/banner1.webp"
+                imgSrc="https://cdn1.bigcommerce.com/server1200/713e0/product_images/uploaded_images/banner3.jpg"
                 imgAlt="nike showcase"
                 title="Check the fresh gear"
                 para="Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
                 m="84px auto 0"
-                maxHeight="428px"
-                // maxHeight="900px"
+                maxHeight={fullwidth? "900px" : "600px"}
+                fullwidth={fullwidth}
             />
             <Banner
                 mainTitle="You Got This" 
@@ -29,13 +33,26 @@ const App = () => {
                 title="Gear Up For Soccer asfddsf"
                 para="Everything you'll need to get serious with the back of the net. Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
                 m="84px auto 0"
-                // maxHeight="900px"
-                maxHeight="428px"
+                maxHeight={fullwidth? "900px" : "428px"}
+                fullwidth={fullwidth}
             />
             <MustHaves />
-            <Trending />
-            <Featured />
+            <Trending fullwidth={fullwidth}/>
+            <Featured fullwidth={fullwidth}/>
             <BestSellers />
+            <Footer />
+            {/* <Banner
+                mainTitle="The Latest And Greatest" 
+                imgSrc="../images/graffiti1.jpg"
+                imgAlt="nike showcase"
+                title="Check the fresh gear"
+                para="Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
+                m="84px auto 0"
+                maxHeight={fullwidth? "900px" : "428px"}
+                fullwidth={fullwidth}
+            />
+            <BestSellers2 />
+
             <Div 
                 id="callToAction-container"
                 bg="success500"
@@ -56,7 +73,7 @@ const App = () => {
                 m="84px  0px 0"
             >
                     Featured items section
-            </Div>
+            </Div> */}
         </Shell>
     );
 };
@@ -68,12 +85,12 @@ const Shell = styled.div`
     width: auto;
     flex-direction: column;
     position: relative;
-    ${'' /* max-width: 1808px; */}
-    max-width: 1000px;
+    max-width: ${props => props.fullwidth ? "1808px" : "1000px"};
     overflow: auto;
     margin: 0 12px;
 
     @media only screen and (max-width: 639px){
+        
         max-width: calc(100vw - 32px);
         ${'' /* margin: 0 16px; */}
         margin: 0;
@@ -82,10 +99,10 @@ const Shell = styled.div`
         max-width: calc(100vw - 32px);
         ${'' /* margin: 0 16px; */}
         margin: 0;
-
     }
     @media only screen and (min-width: 1024px){
-        max-width: 1000px;
+       
+        max-width: ${props => props.fullwidth ? "1808px" : "1000px"};
         margin: 0 48px;
     }
     @media only screen and (min-width: 1920px){
