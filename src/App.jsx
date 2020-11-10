@@ -1,17 +1,17 @@
 import React from 'react';
-import {Div} from 'atomize';
+// import {Div} from 'atomize';
 import styled from 'styled-components';
 import Banner from './Banner.jsx';
 import MustHaves from './Must-Haves.jsx';
 import Trending from './Trending.jsx';
 import BestSellers from './BestSellers.jsx';
-import BestSellers2 from './BestSellers2.jsx';
+// import BestSellers2 from './BestSellers2.jsx';
 import Featured from './Featured.jsx';
 import Footer from './Footer.jsx';
 
 import './styles.css'
 
-const fullwidth = true;
+const fullwidth = false;
 
 const App = () => {
     return (
