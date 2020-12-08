@@ -38,7 +38,7 @@ const App = () => {
             <Header SetWidth={setFullWidth} isExpaned={fullwidth}/>
             <Banner
                 mainTitle="Stay Tuned" 
-                imgSrc="./images/banner1.webp"
+                imgSrc="./images/banner1.jpg"
                 imgAlt="nike showcase"
                 title="Check the fresh gear"
                 para=""
