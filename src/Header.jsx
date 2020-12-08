@@ -36,6 +36,7 @@ const HeaderSection = styled.div`
     justify-content: space-between;
     align-items: center;
     align-content: center;
+    margin-top: 20px;
 `;
 
 const LogoSection = styled.div`
