@@ -29,6 +29,34 @@ const arrObj = {
 }
 
 const products = Object.entries(arrObj);
+let startX;
+let scrollLeft;
+let isDown = false;
+let wasDragged = false;
+
+const SwiperSlideComponent = ({slug, imgSrc, category, productName, price}) => {
+    return (
+        <SwiperSlide>
+                <ProductSlide>
+                    <a href={slug} onClick={(e) => {
+                            if(wasDragged)
+                                e.preventDefault();
+                            wasDragged = false;
+                        }}
+                    >
+                        <img src={imgSrc} alt={category} />
+                        <ProductInfo>
+                        <div>
+                            <h4>{productName}</h4>
+                            <p>{category}</p>
+                        </div>
+                        <p>{price}</p>
+                        </ProductInfo>
+                    </a>
+                </ProductSlide>
+            </SwiperSlide>
+    );
+};
 
 const MustHaves = (props) => {
 
@@ -37,67 +65,47 @@ const MustHaves = (props) => {
             <h2>This Season's Must-Haves</h2>
             <a href="/Shop-All">Shop All</a>
         </BannerTitle>
-        <SwiperWrapper>
-            <SwiperSlide>
-                <ProductSlide>
-                    <a href={products[0][1].slug}>
-                        <img src={products[0][1].imgSrc} alt={products[0][1].category}></img>
-
-                        <ProductInfo>
-                        <div>
-                            <h4>{products[0][0]}</h4>
-                            <p>{products[0][1].category}</p>
-                        </div>
-                        <p>{products[0][1].price}</p>
-                        </ProductInfo>
-                    </a>
-                </ProductSlide>
-            </SwiperSlide>
-            <SwiperSlide>
-                <ProductSlide>
-                    <a href={products[1][1].slug}>
-                        <img src={products[1][1].imgSrc} alt={products[1][1].category}></img>
-
-                        <ProductInfo>
-                        <div>
-                            <h4>{products[1][0]}</h4>
-                            <p>{products[1][1].category}</p>
-                        </div>
-                        <p>{products[1][1].price}</p>
-                        </ProductInfo>
-                    </a>
-                </ProductSlide>
-            </SwiperSlide>
-            <SwiperSlide>
-                <ProductSlide>
-                    <a href={products[2][1].slug}>
-                        <img src={products[2][1].imgSrc} alt={products[2][1].category}></img>
-
-                        <ProductInfo>
-                        <div>
-                            <h4>{products[2][0]}</h4>
-                            <p>{products[2][1].category}</p>
-                        </div>
-                        <p>{products[2][1].price}</p>
-                        </ProductInfo>
-                    </a>
-                </ProductSlide>
-            </SwiperSlide>
-            <SwiperSlide>
-                <ProductSlide>
-                    <a href={products[3][1].slug}>
-                        <img src={products[3][1].imgSrc} alt={products[3][1].category}></img>
-
-                        <ProductInfo>
-                        <div>
-                            <h4>{products[3][0]}</h4>
-                            <p>{products[3][1].category}</p>
-                        </div>
-                        <p>{products[3][1].price}</p>
-                        </ProductInfo>
-                    </a>
-                </ProductSlide>
-            </SwiperSlide>
+        <SwiperWrapper
+            onMouseDown={ (e) => {
+                    e.preventDefault();
+                    isDown = true;
+                    startX = e.pageX - e.currentTarget.offsetLeft;
+                    scrollLeft = e.currentTarget.scrollLeft;
+                }
+            }
+            onMouseUp={ (e) => {
+                    e.preventDefault();
+                    isDown = false;
+                }
+            }
+            onMouseLeave={ (e) => {
+                    e.preventDefault();
+                    isDown = false;
+                    wasDragged = false;
+                }
+            } 
+            onMouseMove={ (e) => {
+                    if(!isDown) return;
+                    e.preventDefault();
+                    wasDragged = true;
+                    const x = e.pageX - e.currentTarget.offsetLeft;
+                    const walk = (x - startX) * 1.5; //scroll-fast
+                    e.currentTarget.scrollLeft = scrollLeft - walk;
+                }
+            }
+        >
+            {   products.map((slide, index) => {
+                    return <SwiperSlideComponent
+                               key={index}
+                               slug={slide[1].slug}
+                               imgSrc={slide[1].imgSrc}
+                               category={slide[1].category}
+                               productName={slide[0]}
+                               price={slide[1].price}
+                            />;
+                })
+            }
+            
         </SwiperWrapper>
     </Container>
     );
