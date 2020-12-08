@@ -14,10 +14,10 @@ import './styles.css'
 
 const App = () => {
 
-    function useLocalState(key, initial){
+    function useLocalState(initial){
         const [state, setState] = useState(() => {
             if (typeof window !== "undefined"){
-                const saved = window.localStorage.getItem(key);
+                const saved = window.localStorage.getItem("localstorage");
                 if (saved !== null){
                     return JSON.parse(saved);
                 }
@@ -26,12 +26,12 @@ const App = () => {
         });
 
         useEffect(()=>{
-            window.localStorage.setItem(key, JSON.stringify(state));
+            window.localStorage.setItem("localstorage", JSON.stringify(state));
         }, [state]);
         return [state, setState];
     }
 
-    const [fullwidth, setFullWidth] = useLocalState("localstorage",true);
+    const [fullwidth, setFullWidth] = useLocalState(true);
 
     return (
         <Shell fullwidth={fullwidth}>
