@@ -16,7 +16,7 @@ import {Div, Button, Icon} from 'atomize';
 const myButton = ({Trending}) => {
 
     const Mobile = useMediaQuery({ query: '(max-width: 639px)' });
-    console.log(Trending);
+    // console.log(Trending);
     return (
         <Div pos="relative">
             <Button className="Button1" prefix={ <Icon name="Bag" size="16px" color={(Mobile && !Trending) ? "white" : "black"} m={{ r: "0.5rem" }}/>}
