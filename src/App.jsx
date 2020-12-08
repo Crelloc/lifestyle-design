@@ -1,27 +1,47 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 // import {Div} from 'atomize';
 import styled from 'styled-components';
 import Banner from './Banner.jsx';
 import MustHaves from './Must-Haves.jsx';
 import Trending from './Trending.jsx';
 import BestSellers from './BestSellers.jsx';
-// import BestSellers2 from './BestSellers2.jsx';
+import Header from './Header.jsx';
 import Featured from './Featured.jsx';
 import Footer from './Footer.jsx';
 
 import './styles.css'
 
-const fullwidth = false;
 
 const App = () => {
+
+    function useLocalState(key, initial){
+        const [state, setState] = useState(() => {
+            if (typeof window !== "undefined"){
+                const saved = window.localStorage.getItem(key);
+                if (saved !== null){
+                    return JSON.parse(saved);
+                }
+            }
+            return initial;
+        });
+
+        useEffect(()=>{
+            window.localStorage.setItem(key, JSON.stringify(state));
+        }, [state]);
+        return [state, setState];
+    }
+
+    const [fullwidth, setFullWidth] = useLocalState("localstorage",true);
+
     return (
         <Shell fullwidth={fullwidth}>
+            <Header SetWidth={setFullWidth} isExpaned={fullwidth}/>
             <Banner
-                mainTitle="The Latest And Greatest" 
-                imgSrc="https://cdn1.bigcommerce.com/server1200/713e0/product_images/uploaded_images/banner3.jpg"
+                mainTitle="Stay Tuned" 
+                imgSrc="./images/banner1.webp"
                 imgAlt="nike showcase"
                 title="Check the fresh gear"
-                para="Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
+                para=""
                 m="84px auto 0"
                 maxHeight={fullwidth? "900px" : "600px"}
                 fullwidth={fullwidth}
@@ -30,8 +50,8 @@ const App = () => {
                 mainTitle="You Got This" 
                 imgSrc="../images/nike-just-do-it.jpg"
                 imgAlt="nike soccer"
-                title="Gear Up For Soccer asfddsf"
-                para="Everything you'll need to get serious with the back of the net. Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
+                title="Gear Up For Soccer"
+                para="Everything you'll need to get serious with the back of the net."
                 m="84px auto 0"
                 maxHeight={fullwidth? "900px" : "428px"}
                 fullwidth={fullwidth}
@@ -41,39 +61,6 @@ const App = () => {
             <Featured fullwidth={fullwidth}/>
             <BestSellers />
             <Footer />
-            {/* <Banner
-                mainTitle="The Latest And Greatest" 
-                imgSrc="../images/graffiti1.jpg"
-                imgAlt="nike showcase"
-                title="Check the fresh gear"
-                para="Everything you'll need to get serious with the back of the net.Everything you'll need to get serious with the back of the net."
-                m="84px auto 0"
-                maxHeight={fullwidth? "900px" : "428px"}
-                fullwidth={fullwidth}
-            />
-            <BestSellers2 />
-
-            <Div 
-                id="callToAction-container"
-                bg="success500"
-                m="84px 0 0"
-            >
-                    Call to action section
-            </Div>
-            <Div
-                id="banner2-container"
-                bg="success400"
-                m="84px  0px 0"
-            >
-                    Banner2 section
-            </Div>
-            <Div
-                id="featuredItems-container"
-                bg="success300"
-                m="84px  0px 0"
-            >
-                    Featured items section
-            </Div> */}
         </Shell>
     );
 };
